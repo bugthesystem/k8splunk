@@ -19,12 +19,7 @@ docker build -t ziyasal/k8splunk:{tag} .
 kubectl create -f splunk-rc.yaml -f splunk-svc.yaml
 ```
 
-**Misc;**
-```sh
-kubectl exec k8splunk --namespace=kube-system  -i -t --  bash
-```
-
-**Warning**
+**Warning**  
 Demo splunk installation requires to configure http event collector to receive logs ([setup link](http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector))
 
 **TODO**
