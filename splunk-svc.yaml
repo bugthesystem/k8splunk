@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "splunk"
+  labels:
+    name: "splunk"
+spec:
+  type: NodePort
+  ports:
+  - name: admin-ui
+    port: 8000
+    nodePort: 30010
+  - name: http-collect
+    port: 8088
+    nodePort: 30016
+  - name: forward-data
+    port: 9997
+  selector:
+    name: "splunk"

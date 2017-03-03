@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: k8splunk
+  namespace: kube-system
+  labels:
+    name: k8splunk
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: k8splunk
+    spec:
+      containers:
+      - name: k8splunk
+        image: ziyasal/k8splunk:stable
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+        args:
+        - -q
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /mnt/sda1/var/lib/docker/containers
+          readOnly: true
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /mnt/sda1/var/lib/docker/containers
