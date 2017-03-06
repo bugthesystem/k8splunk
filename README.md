@@ -23,6 +23,5 @@ kubectl create -f splunk-rc.yaml -f splunk-svc.yaml
 Demo splunk installation requires to configure http event collector to receive logs ([setup link](http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector))
 
 **TODO**
-- Update `td-agent.conf` with [official](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/fluentd-elasticsearch/fluentd-es-image/td-agent.conf) one
 - Create Helm Chart
 - Add documentation
