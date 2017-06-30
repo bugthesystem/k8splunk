@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: k8splunk
-        image: ziyasal/k8splunk:stable
+        image: ziyasal/k8splunk:1.0.5
         resources:
           limits:
             cpu: 100m

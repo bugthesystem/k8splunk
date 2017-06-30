@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: {{ template "fullname" . }}
+  namespace: kube-system
+  labels:
+    name: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+spec:
+  template:
+    metadata:
+      labels:
+        k8s-app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+        args:
+        - -q
+        volumeMounts:
+        - name: varlog
+          mountPath: {{ .Values.volumeMounts.varlog }}
+        - name: varlibdockercontainers
+          mountPath: {{ .Values.volumeMounts.varlibdockercontainers }}
+          readOnly: true
+        - name: td-agent-config-volume
+          mountPath: {{ .Values.volumeMounts.tdAgentConfMountPath }}
+      imagePullSecrets:
+      - name: {{ .Values.pull.secretName }}
+      volumes:
+      - name: varlog
+        hostPath:
+          path: {{ .Values.volumes.varlog }}
+      - name: varlibdockercontainers
+        hostPath:
+          path: {{ .Values.volumes.varlibdockercontainers }}
+      - name: td-agent-config-volume
+        configMap:
+          name: {{ .Values.volumes.tdAgentConfigVolumeConfigMap }}
