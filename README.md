@@ -1,4 +1,3 @@
-
 # k8splunk
 
 > Send [kubernetes](https://github.com/kubernetes/kubernetes) logs to [splunk](https://github.com/splunk) using [fluentd](https://github.com/fluent/fluentd)
