@@ -4,7 +4,7 @@
 
 
 ## Before start
-**Update `[td-agent.conf](https://github.com/ziyasal/k8splunk/blob/master/td-agent.conf#L287)`**
+**Update [td-agent.conf](https://github.com/ziyasal/k8splunk/blob/master/td-agent.conf#L287)**
 
 ```sh
 <match **>
@@ -41,7 +41,7 @@ kubectl create -f splunk-rc.yaml -f splunk-svc.yaml
 ```
 
 ## Deploy via `Helm`
-:warning: Required changes in `[values.yaml](https://github.com/ziyasal/k8splunk/blob/master/helm-chart/k8splunk/values.yaml#L5)` file;
+:warning: Required changes in [values.yaml](https://github.com/ziyasal/k8splunk/blob/master/helm-chart/k8splunk/values.yaml#L5) file;
 
 ```yaml
 image:
