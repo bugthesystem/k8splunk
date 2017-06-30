@@ -26,4 +26,4 @@ Demo splunk installation requires to configure http event collector to receive l
 ## TODO
 
 - [x] Create Helm Chart
-- [] Add documentation
+- [ ]  Add documentation
