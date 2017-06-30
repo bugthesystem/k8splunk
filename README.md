@@ -14,7 +14,7 @@
 </match>
 ```
 
-** Create `config-map`** for `td-agent.conf`
+**Create `config-map` for `td-agent.conf`**
 
 ```sh
 ./create-config-map.sh
@@ -35,6 +35,8 @@ kubectl create -f k8splunk-ds.yaml
 ```
 
 ### To deploy local splunk (demo purpose only)
+
+**:warning:** Demo splunk installation requires to configure http event collector to receive logs ([setup link](http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector))
 
 ```sh
 kubectl create -f splunk-rc.yaml -f splunk-svc.yaml
@@ -64,8 +66,6 @@ helm package k8splunk
 ```sh
 helm install k8splunk-{your version}.tgz
 ```
-
-**:warning:** Demo splunk installation requires to configure http event collector to receive logs ([setup link](http://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector))
 
 ## TODO
 
