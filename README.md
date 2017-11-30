@@ -66,8 +66,3 @@ helm package k8splunk
 ```sh
 helm install k8splunk-{your version}.tgz
 ```
-
-## TODO
-
-- [x] Create Helm Chart
-- [x]  Add documentation
